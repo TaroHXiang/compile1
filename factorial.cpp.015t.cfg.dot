@@ -1,0 +1,82 @@
+digraph "factorial.cpp.015t.cfg" {
+overlap=false;
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	subgraph cluster_1988_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_1988_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|n.0_1\ =\ n;\l\
+|if\ (i\ \<=\ n.0_1)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_1988_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|f\ =\ f\ *\ i;\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	fn_1988_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1988_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1988_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|std::basic_istream\<char\>::operator\>\>\ (&cin,\ &n);\l\
+}"];
+
+	fn_1988_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|i\ =\ 2;\l\
+|f\ =\ 1;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_1988_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|D.53836\ =\ std::basic_ostream\<char\>::operator\<\<\ (&cout,\ f);\l\
+}"];
+
+	fn_1988_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_2\ =\ D.53836;\l\
+|std::basic_ostream\<char\>::operator\<\<\ (_2,\ endl);\l\
+}"];
+
+	fn_1988_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|D.53834\ =\ 0;\l\
+|n\ =\ \{CLOBBER(eol)\};\l\
+}"];
+
+	fn_1988_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|\<L4\>:\l\
+|return\ D.53834;\l\
+}"];
+
+	fn_1988_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|\<L5\>:\l\
+|n\ =\ \{CLOBBER(eol)\};\l\
+|resx\ 1\l\
+}"];
+
+	fn_1988_basic_block_0:s -> fn_1988_basic_block_2:n [style="solid,bold",color=black,weight=100,constraint=true];
+	fn_1988_basic_block_2:s -> fn_1988_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1988_basic_block_2:s -> fn_1988_basic_block_3:n [style="solid,bold",color=black,weight=100,constraint=true];
+	fn_1988_basic_block_3:s -> fn_1988_basic_block_5:n [style="solid,bold",color=black,weight=100,constraint=true];
+	fn_1988_basic_block_4:s -> fn_1988_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_1988_basic_block_5:s -> fn_1988_basic_block_4:n [style="solid,bold",color=forestgreen,weight=10,constraint=true];
+	fn_1988_basic_block_5:s -> fn_1988_basic_block_6:n [style="solid,bold",color=darkorange,weight=10,constraint=true];
+	fn_1988_basic_block_6:s -> fn_1988_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1988_basic_block_6:s -> fn_1988_basic_block_7:n [style="solid,bold",color=black,weight=100,constraint=true];
+	fn_1988_basic_block_7:s -> fn_1988_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1988_basic_block_7:s -> fn_1988_basic_block_8:n [style="solid,bold",color=black,weight=100,constraint=true];
+	fn_1988_basic_block_8:s -> fn_1988_basic_block_9:n [style="solid,bold",color=black,weight=100,constraint=true];
+	fn_1988_basic_block_9:s -> fn_1988_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1988_basic_block_0:s -> fn_1988_basic_block_1:n [style="invis",constraint=true];
+}
+}

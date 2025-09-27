@@ -1,0 +1,79 @@
+
+;; Function main (main, funcdef_no=1988, decl_uid=49708, cgraph_uid=456, symbol_order=493)
+
+
+Analyzing function body size: int main()/493
+
+IPA function summary for int main()/493
+  global time:     44.000000
+  self size:       18
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:6.000000, time:7.000000
+    size:2.000000, time:0.000000,  executed if:(not inlined)
+  calls:
+    std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(__ostream_type& (*)(__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>]/749 function body not available
+      freq:1.00 loop depth: 0 size: 3 time: 12
+    std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]/1158 function body not available
+      freq:1.00 loop depth: 0 size: 4 time: 13
+    std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(int&) [with _CharT = char; _Traits = std::char_traits<char>]/1156 function body not available
+      freq:1.00 loop depth: 0 size: 3 time: 12
+
+int main ()
+{
+  struct basic_ostream & D.53836;
+  int f;
+  int n;
+  int i;
+  int D.53834;
+  int n.0_1;
+  struct basic_ostream & _2;
+  struct basic_ostream & _11;
+  int _13;
+
+  <bb 2> :
+  std::basic_istream<char>::operator>> (&cin, &n);
+
+  <bb 3> :
+  i_8 = 2;
+  f_9 = 1;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  f_15 = f_4 * i_3;
+  i_16 = i_3 + 1;
+
+  <bb 5> :
+  # i_3 = PHI <i_8(3), i_16(4)>
+  # f_4 = PHI <f_9(3), f_15(4)>
+  n.0_1 = n;
+  if (i_3 <= n.0_1)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  _11 = std::basic_ostream<char>::operator<< (&cout, f_4);
+
+  <bb 7> :
+  _2 = _11;
+  std::basic_ostream<char>::operator<< (_2, endl);
+
+  <bb 8> :
+  _13 = 0;
+  n ={v} {CLOBBER(eol)};
+
+  <bb 9> :
+<L4>:
+  return _13;
+
+  <bb 10> :
+<L5>:
+  n ={v} {CLOBBER(eol)};
+  resx 1
+
+}
+
+
