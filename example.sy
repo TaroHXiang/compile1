@@ -8,19 +8,17 @@ int sum(int n, int a[]) {
     }
     return s;
 }
-
 int count_gt_even(int n, int a[], int t) {
     int i, cnt;
     i = 0; cnt = 0;
     while (i < n) {
-        if ((a[i] > t) && (a[i] % 2 == 0)) {  // 短路：左边为假时右侧不求值
+        if ((a[i] > t) && (a[i] % 2 == 0)) {  
             cnt = cnt + 1;
         }
         i = i + 1;
     }
     return cnt;
 }
-
 void sort(int n, int a[]) {
     int i, j, swapped, tmp;
     i = 0;
@@ -28,7 +26,7 @@ void sort(int n, int a[]) {
         swapped = 0;
         j = 0;
         while (j < n - 1 - i) {
-            if (a[j] <= a[j + 1]) {  // 已有序，跳过这次比较
+            if (a[j] <= a[j + 1]) {  
                 j = j + 1;
                 continue;
             }
@@ -38,16 +36,15 @@ void sort(int n, int a[]) {
             swapped = 1;
             j = j + 1;
         }
-        if (swapped == 0) {  // 提前结束
+        if (swapped == 0) {  
             break;
         }
         i = i + 1;
     }
 }
-
 int read(int arr[]) {
     int n;
-    n = getarray(arr);           // 输入：先给 n，再给 n 个数
+    n = getarray(arr);           
     if (n <= 0) {
         putf("输入的个数 n 非法: %d\n", n);
         return 0;
@@ -58,31 +55,20 @@ int read(int arr[]) {
     }
     return n;
 }
-
 int main() {
     int arr[MAXN];
     int n, s, mode, t;
-
-    // 读数据并做边界检查
     n = read(arr);
     if (n == 0) {
         putf("无有效数据，退出。\n");
         return 0;
     }
-
     s = sum(n, arr);
     float avg;
     avg = (1.0 * s) / n;
     putf("平均值 = %f\n", avg);
-
-    // 读一个“模式”选择，展示 if/else 分支
-    // 1=输出最大值；2=输出中位数（含排序与计时）；3=统计 >t 且为偶数 的个数；其它=什么也不做
-    putf("输入模式(1=最大值,2=中位数,3=统计>t且偶数): ");
-    
     mode = getint();
-
     if (mode == 1) {
-        // 线性扫描最大值
         int i, mx;
         i = 0; mx = arr[0];
         while (i < n) {
@@ -91,11 +77,9 @@ int main() {
         }
         putf("最大值 = %d\n", mx);
     } else if (mode == 2) {
-        // 计时 + 排序 + 中位数（偶数个取中间两数平均，注意浮点）
         starttime();
         sort(n, arr);
         stoptime();
-
         if (n % 2 == 1) {
             putf("中位数 = %f\n", 1.0 * arr[n / 2]);
         } else {
@@ -112,11 +96,8 @@ int main() {
     } else {
         putf("模式 %d 未定义，结束。\n", mode);
     }
-
-    // 展示 putarray（可选）
     putf("当前数组(可能已排序)：\n");
     putarray(n, arr);
     putch(10);
-
     return 0;
 }
